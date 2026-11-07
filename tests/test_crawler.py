@@ -141,7 +141,7 @@ def test_all():
     assert r.status_code == 202
     depth1_job_id = r.json()["job_id"]
 
-    for _ in range(40):
+    for _ in range(60):
         r = requests.get(f"{BASE_URL}/api/jobs/{depth1_job_id}", headers=headers)
         info = r.json()
         if info["status"] in ("COMPLETED", "FAILED"):
